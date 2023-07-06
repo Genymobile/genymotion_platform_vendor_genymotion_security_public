@@ -4,7 +4,7 @@ Copyright (C) Genymobile
 
 ## Description
 
-Repository to store dev and release keys, and corresmonding .mk that are included from device.mk.
+Repository to store dev and release keys, and corresponding .mk that are included from device.mk.
 
 dev-keys/ is used in device/genymotion/vbox86/device.mk to sign the system at build (properties are flagged with dev-keys).
 We use dev-keys/testkey, but the build system flag for dev-keys, as they are not the AOSP default keys.
