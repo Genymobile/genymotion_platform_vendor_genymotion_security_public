@@ -4,7 +4,7 @@ Copyright (C) Genymobile
 
 ## Description
 
-This repository stores Genymotion Android development and release keys, and corresponding .mk that are included from device.mk.
+This repository stores Genymotion Android development and release keys, and corresponding .mk that we include internally in our `device.mk`. Third party  developpers can use the release keys to sign their own applications in order to grant them system privileges.
 
 `dev-keys` are used in `device.mk` to sign the system at build (properties are flagged with dev-keys).
 We use `dev-keys/testkey`, but the build system flags them as `dev-keys`, as they are not the default AOSP keys.
@@ -15,13 +15,15 @@ See: https://android.googlesource.com/platform/build/+/refs/tags/android-10.0.0_
 
 ## Key generation
 
-In the Genymotion Android root source : 
+This part is for internal use. It describes our procedure to generate the development and release keys.
+
+In the Genymotion Android root source: 
 
 ```
 $ subject='/C=FR/ST=Seine/L=Paris/O=Genymobile/OU=Genymotion/CN=Genymobile/emailAddress=contact@genymotion.com'
 ```
 
-Generate dev keys : 
+Generate dev keys: 
 
 ```
 $ for x in testkey platform shared media networkstack; do \
@@ -29,7 +31,7 @@ $ for x in testkey platform shared media networkstack; do \
 done
 ```
 
-Generate release keys : 
+Generate release keys: 
 
 ```
 $ for x in releasekey platform shared media networkstack; do \
