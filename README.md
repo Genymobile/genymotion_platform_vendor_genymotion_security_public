@@ -28,7 +28,7 @@ $ subject='/C=FR/ST=Seine/L=Paris/O=Genymobile/OU=Genymotion/CN=Genymobile/email
 Generate dev keys: 
 
 ```
-$ for x in testkey platform shared media networkstack; do \
+$ for x in testkey platform shared media networkstack sdk_sandbox bluetooth; do \
    ./development/tools/make_key ./vendor/genymotion/security/dev-keys/$x "$subject"; \
 done
 ```
@@ -36,7 +36,7 @@ done
 Generate release keys: 
 
 ```
-$ for x in releasekey platform shared media networkstack; do \
+$ for x in releasekey platform shared media networkstack sdk_sandbox, bluetooth; do \
    ./development/tools/make_key ./vendor/genymotion/security/release-keys/$x "$subject"; \
 done
 ```
