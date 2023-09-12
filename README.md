@@ -1,23 +1,18 @@
-# Genymotion development and release keys
+# Genymotion release keys
 
 Copyright (C) Genymobile
 
 ## Description
 
-This repository stores Genymotion Android development and release keys, and corresponding .mk that we include internally in our `device.mk`. Third party developpers can use the release keys to sign their own applications in order to grant them system privileges on Genymotion. 
+This repository stores Genymotion Android release keys, and corresponding .mk that we include internally in our `device.mk`. Third party developpers can use the release keys to sign their own applications in order to grant them system privileges on Genymotion. 
 
 **Note:** only the Android 10 version of Genymotion Device Image (PaaS) starting from v13.1 rely on these keys. Our other Android versions rely on the `test-keys` from AOSP. This note will be updated when we migrate other versions to the keys stored in this repository.
-
-`dev-keys` are used in `device.mk` to sign the system at build (properties are flagged with dev-keys).
-We use `dev-keys/testkey`, but the build system flags them as `dev-keys`, as they are not the default AOSP keys.
-
-See: https://android.googlesource.com/platform/build/+/refs/tags/android-10.0.0_r25/core/Makefile#306
 
 `release-keys` are used by signature script to re-sign the build as a release one. Properties are flagged as `release-keys`, apk files are re-signed.
 
 ## Key generation
 
-This part is for internal use. It describes our procedure to generate the development and release keys.
+This part is for internal use. It describes our procedure to generate the release keys.
 
 In the Genymotion Android root source: 
 
@@ -25,18 +20,10 @@ In the Genymotion Android root source:
 $ subject='/C=FR/ST=Seine/L=Paris/O=Genymobile/OU=Genymotion/CN=Genymobile/emailAddress=contact@genymotion.com'
 ```
 
-Generate dev keys: 
-
-```
-$ for x in testkey platform shared media networkstack; do \
-   ./development/tools/make_key ./vendor/genymotion/security/dev-keys/$x "$subject"; \
-done
-```
-
 Generate release keys: 
 
 ```
-$ for x in releasekey platform shared media networkstack; do \
+$ for x in releasekey platform shared media networkstack sdk_sandbox, bluetooth; do \
    ./development/tools/make_key ./vendor/genymotion/security/release-keys/$x "$subject"; \
 done
 ```
