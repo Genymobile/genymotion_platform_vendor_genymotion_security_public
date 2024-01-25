@@ -6,7 +6,7 @@ Copyright (C) Genymobile
 
 This repository stores Genymotion Android release keys, and corresponding .mk that we include internally in our `device.mk`. Third party developpers can use the release keys to sign their own applications in order to grant them system privileges on Genymotion. 
 
-**Note:** only the Android 10 version of Genymotion Device Image (PaaS) starting from v13.1 rely on these keys. Our other Android versions rely on the `test-keys` from AOSP. This note will be updated when we migrate other versions to the keys stored in this repository.
+**Notes:** Please refer to our [Root Access documentation page](https://docs.genymotion.com/paas/10_Using_root_access/) for more details about versions for which this feature is available. Our other Android versions rely on the `test-keys` from AOSP. This note will be updated when we migrate other versions to the keys stored in this repository.
 
 `release-keys` are used by signature script to re-sign the build as a release one. Properties are flagged as `release-keys`, apk files are re-signed.
 
