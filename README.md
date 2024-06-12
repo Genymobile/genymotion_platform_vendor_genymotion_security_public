@@ -11,6 +11,7 @@ This repository stores Genymotion Android release keys, and corresponding `.mk` 
 **Notes:** Please refer to the documentation of the Genymotion product you are using for more details about versions which support this feature:
 * **Genymotion Device Image**: [Root Access documentation](https://docs.genymotion.com/paas/10_Using_root_access/)
 * **Genymotion Desktop**: [Root Access documentation](https://docs.genymotion.com/desktop/Using_root_access/)
+* **Genymotion SaaS**: [Root Access documentation](https://docs.genymotion.com/saas/Using_root_access/)
 
 Other versions will still rely on the default `test-keys` from AOSP, see [the AOSP documentation](https://source.android.com/docs/core/ota/sign_builds) for more information.
 
