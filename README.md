@@ -33,6 +33,20 @@ $ for x in releasekey platform shared media networkstack sdk_sandbox bluetooth; 
 done
 ```
 
+### Key protected by a passphrase
+
+We now protect On-premise release keys with a passphrase stored in passpack ("Genymotion private signing keys passphrase (on-prem)").
+
+We need to patch development/tools/make_key in order to generate keys with the openssl "-v1 PBE-SHA1-3DES" option.
+
+The default option doesn't seems to be supported properly by the signing process. Example when signing com.android.cellbroadcast.apex :
+
+```
+java.security.NoSuchAlgorithmException: PBES2 SecretKeyFactory not available
+```
+
+Use patch make_key.patch on development/tools repo.
+
 ## Genymotion Keystore
 
 ### Generate the keystore
